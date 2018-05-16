@@ -1,3 +1,7 @@
 li{
   list-style-type: none;
 }
+
+.article{
+  padding-top: 20px;
+}
