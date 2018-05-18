@@ -1,0 +1,17 @@
+<div class="ui items">
+  <app-product-row
+    *ngFor="let myProduct of productList"
+    [product] = "myProduct"
+    (click) = 'clicked(myProduct)'
+    [class.selected]="isSelected(myProduct)"
+  ></app-product-row>
+</div>
+
+<!--click is a built-in event that is triggered when the host element is clicked on.-->
+<!--In this case, we want to call the component function clicked on ProductsListComponent whenever this element is clicked on.-->
+
+
+<!--The line [class.selected]="isSelected(myProduct)" is a fun one: Angular allows us to set-->
+<!--classes conditionally on an element using this syntax. This syntax says “add the CSS class selected-->
+<!--if isSelected(myProduct) returns true.”-->
+
