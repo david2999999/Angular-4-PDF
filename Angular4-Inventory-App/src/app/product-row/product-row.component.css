@@ -1,0 +1,13 @@
+.product-row{
+  margin: 1rem auto;
+  display: block;
+  width: 30rem;
+  text-align: center;
+  border: 2px solid mediumvioletred;
+  border-radius: 10px;
+}
+
+.content{
+  border-top: 2px solid mediumturquoise;
+  padding: 10px;
+}
