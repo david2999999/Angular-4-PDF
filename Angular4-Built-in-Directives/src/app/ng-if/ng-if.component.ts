@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-if.component.css']
 })
 export class NgIfComponent implements OnInit {
+  str: string;
+  choice: number;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  myFunct(): void {}
+
+  nextChoice(): void {}
 }
