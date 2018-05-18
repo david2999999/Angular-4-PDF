@@ -1,0 +1,49 @@
+<div [style.background-color]="'yellow'">
+  Uses fixed yellow background
+</div>
+
+<div [ngStyle]="{color: 'white', 'background-color': 'blue'}">
+  Uses fixed white text on blue background
+</div>
+<hr>
+
+<div class="ui input">
+  <input type="text" name="color" value="{{color}}" #colorinput>
+</div>
+
+<div class="ui input">
+  <input type="text" name="fontSize" value="{{fontSize}}" #fontinput>
+</div>
+
+<button class="ui primary button" (click)="apply(colorinput.value, fontinput.value)">
+  Apply Settings
+</button>
+
+<!--It’s important to note that we have to specify units where appropriate. For instance, it isn’t valid-->
+<!--CSS to set a font-size of 12 - we have to specify a unit such as 12px or 1.2em. Angular provides a-->
+<!--handy syntax for specifying units: here we used the notation [style.font-size.px].-->
+<!--The .px suffix indicates that we’re setting the font-size property value in pixels. You could easily-->
+<!--replace that by [style.font-size.em] to express the font size in ems or even in percentage using-->
+<!--[style.font-size.%].-->
+<div>
+  <span [ngStyle]="{color: 'red'}" [style.font-size.px]="fontSize">
+    red text
+  </span>
+</div>
+
+<h4 class="ui horizontal divider header">
+  ngStyle with object property from variable
+</h4>
+<div>
+  <span [ngStyle]="{color: color}">
+    {{color}} text
+  </span>
+</div>
+
+<h4 class="ui horizontal divider header">
+  style from variable
+</h4>
+
+<div [style.background-color]="color" style="color: white">
+  {{color}} background
+</div>

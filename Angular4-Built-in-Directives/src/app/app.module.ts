@@ -5,13 +5,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NgIfComponent } from './ng-if/ng-if.component';
 import { NgSwitchComponent } from './ng-switch/ng-switch.component';
+import { NgStyleComponent } from './ng-style/ng-style.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NgIfComponent,
-    NgSwitchComponent
+    NgSwitchComponent,
+    NgStyleComponent
   ],
   imports: [
     BrowserModule
