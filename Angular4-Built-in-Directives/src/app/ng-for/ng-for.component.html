@@ -1,0 +1,30 @@
+<div class="ng-for">
+  <h4 class="ui horizontal divider header">
+    Simple List of String
+  </h4>
+
+  <div class="ui list" *ngFor="let city of cities">
+    <div class="item">{{city}}</div>
+  </div>
+  <hr>
+
+  <h4 class="ui horizontal divider header">
+    List of Objects
+  </h4>
+
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let p of people">
+      <td>{{p.name}}</td>
+      <td>{{p.age}}</td>
+      <td>{{p.city}}</td>
+    </tr>
+  </table>
+</div>
+

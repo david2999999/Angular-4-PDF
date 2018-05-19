@@ -7,6 +7,8 @@ import { NgIfComponent } from './ng-if/ng-if.component';
 import { NgSwitchComponent } from './ng-switch/ng-switch.component';
 import { NgStyleComponent } from './ng-style/ng-style.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
+import { NgForComponent } from './ng-for/ng-for.component';
+import {SuiModule} from 'ng2-semantic-ui';
 
 
 @NgModule({
@@ -15,10 +17,12 @@ import { NgClassComponent } from './ng-class/ng-class.component';
     NgIfComponent,
     NgSwitchComponent,
     NgStyleComponent,
-    NgClassComponent
+    NgClassComponent,
+    NgForComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SuiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
