@@ -9,6 +9,7 @@ import { NgStyleComponent } from './ng-style/ng-style.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
 import { NgForComponent } from './ng-for/ng-for.component';
 import {SuiModule} from 'ng2-semantic-ui';
+import { NgNonBindableComponent } from './ng-non-bindable/ng-non-bindable.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {SuiModule} from 'ng2-semantic-ui';
     NgSwitchComponent,
     NgStyleComponent,
     NgClassComponent,
-    NgForComponent
+    NgForComponent,
+    NgNonBindableComponent
   ],
   imports: [
     BrowserModule,
