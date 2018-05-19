@@ -44,4 +44,8 @@
       </tr>
     </table>
   </div>
+
+  <div class="ui list" *ngFor="let c of cities; let num = index">
+    <div class="item">{{ num + 1 }} - {{ c }}</div>
+  </div>
 </div>
