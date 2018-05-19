@@ -14,7 +14,7 @@ export class NgStyleComponent implements OnInit {
   ngOnInit() {
   }
 
-  apply(color: string, fontSize: number) {
+  apply(color: string, fontSize: number): void {
     this.color = color;
     this.fontSize = fontSize;
   }

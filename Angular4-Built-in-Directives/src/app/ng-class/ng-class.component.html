@@ -1,0 +1,26 @@
+<!--The NgClass directive, represented by a ngClass attribute in your HTML template, allows you to-->
+<!--dynamically set and change the CSS classes for a given DOM element.-->
+
+<div [ngClass]="{bordered: false}">This is never bordered</div>
+<div [ngClass]="{bordered: true}">This is always bordered</div>
+
+<div [ngClass]="{bordered: isBordered}">
+  Using object literal. Border {{ isBordered? "ON" : "OFF"}}
+</div>
+
+<hr>
+<!--same as <div [ngClass]="{bordered: classesObj.isBordered}"></div>-->
+<div [ngClass]="classesObj">
+  Using Object var. Border {{classesObj.bordered  ? "ON" : "OFF"}}
+</div>
+
+<!--The element will have all three classes: base from the class HTML attribute and also blue and-->
+<!--round from the [class] assignment-->
+<div class="base" [ngClass]="['blue', 'round']">
+  This will always have a blue background and round corners
+</div>
+
+<div class="base" [ngClass]="classList">
+  This is {{classList.indexOf('blue') > -1 ? "" : "NOT"}} blue
+  and {{classList.indexOf('round') > -1 ? "" : "NOT"}} round
+</div>
