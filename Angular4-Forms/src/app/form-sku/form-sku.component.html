@@ -1,0 +1,38 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: SKU</h2>
+  <!--The #v=thing syntax says that we want to create a local variable for this view-->
+  <!--• (ngSubmit) - comes from NgForm
+      • onSubmit() - will be implemented in our component definition class (below)
+      • f.value - f is the FormGroup that we specified above. And .value will return the key/value
+                  pairs of this FormGroup-->
+  <form #f="ngForm"
+        (ngSubmit)="onSubmit(f.value)"
+          class="ui form">
+
+
+    <!--When we use ngModel with no attribute value we are specifying:
+          1. a one-way data binding
+          2. we want to create a FormControl on this form with the name sku (because of the name attribute
+            on the input tag)-->
+    <div class="field">
+      <label for="skuInput">SKU</label>
+      <input type="text"
+              id="skuInput"
+              placeholder="SKU"
+              name="sku" ngModel>
+    </div>
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
+
+<!--And what type of object is ngForm? It is a FormGroup. That means we can use f as a FormGroup in
+our view. And that’s exactly what we do in the (ngSubmit) output.-->
+
+
+<!--ngForm is already on this element and you can think of it as if we are “exporting” this
+FormGroup so that we can reference it elsewhere in our view.-->
+
+<!--NgModel vs. ngModel: what’s the difference? Generally, when we use PascalCase, like
+    NgModel, we’re specifying the class and referring to the object as it’s defined in code. The
+    lower case (CamelCase), as in ngModel, comes from the selector of the directive and it’s
+    only used in the DOM / template.-->
