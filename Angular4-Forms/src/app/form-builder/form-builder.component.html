@@ -1,0 +1,21 @@
+<h2 class="ui header">Demo: Form: SKU with Builder</h2>
+<form [formGroup]="myForm"
+      (ngSubmit)="onSubmit(myForm.value)"
+       class="ui form">
+  <div class="field">
+    <label for="skuInput">SKU</label>
+    <input type="text"
+           id="skuInput"
+           placeholder="SKU"
+           name="sku"
+           [formControl]="myForm.controls['sku']"
+    ></div>
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
+<!--To create a new FormGroup and FormControls implicitly use:
+• ngForm and
+• ngModel
+But to bind to an existing FormGroup and FormControls use:
+• formGroup and
+• formControl-->
