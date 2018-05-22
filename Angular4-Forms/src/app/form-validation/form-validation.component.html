@@ -1,0 +1,34 @@
+<!--1. Checking the validity of our whole form and displaying a message
+2. Checking the validity of our individual field and displaying a message
+3. Checking the validity of our individual field and coloring the field red if it’s invalid
+4. Checking the validity of our individual field on a particular requirement and displaying a
+message-->
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: With Validation (explicit)</h2>
+
+  <!--I’m using the Semantic UI CSS Framework’s CSS class .error, which means if I add the class error
+  to the <div class= "field"> it will show the input tag with a red border.-->
+  <form [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm.value)"
+        class="ui form"
+        [class.error]="!myForm.valid && myForm.touched"
+  >
+
+    <!--Notice here that we have two conditions for setting the .error class: We’re checking for !sku.valid
+      and sku.touched. The idea here is that we only want to show the error state if the user has tried
+      editing the form (“touched” it) and it’s now invalid.-->
+    <div class="field"
+      [class.error]="!sku.valid && sku.touched">
+      <label for="skuInput">SKU</label>
+      <input type="text"
+             id="skuInput"
+             placeholder="SKU"
+             [formControl]="sku"
+      >
+      <div *ngIf="!sku.valid" class="ui error message">SKU is invalid</div>
+      <div *ngIf="sku.hasError('required')" class="ui error message">SKU is required</div>
+    </div>
+    <div *ngIf="!myForm.valid" class="ui error message">Form is Invalid</div>
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>

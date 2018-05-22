@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormSkuComponent } from './form-sku/form-sku.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { FormValidationComponent } from './form-validation/form-validation.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
     FormControlComponent,
     FormGroupComponent,
     FormSkuComponent,
-    FormBuilderComponent
+    FormBuilderComponent,
+    FormValidationComponent
   ],
   imports: [
     BrowserModule,
