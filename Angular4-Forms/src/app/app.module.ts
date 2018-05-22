@@ -8,7 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormSkuComponent } from './form-sku/form-sku.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { FormValidationComponent } from './form-validation/form-validation.component';
+import { FormValidationComponent } from './form-validation-explicit/form-validation.component';
+import { FormValidationShorthandComponent } from './form-validation-shorthand/form-validation-shorthand.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
     FormGroupComponent,
     FormSkuComponent,
     FormBuilderComponent,
-    FormValidationComponent
+    FormValidationComponent,
+    FormValidationShorthandComponent
   ],
   imports: [
     BrowserModule,
