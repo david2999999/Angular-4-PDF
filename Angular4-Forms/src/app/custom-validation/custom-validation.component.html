@@ -1,5 +1,5 @@
 <div class="ui raised segment">
-  <h2 class="ui header">Demo Form: With Validation (shorthand)</h2>
+  <h2 class="ui header">Demo Form: With Custom Validation</h2>
 
   <!--I’m using the Semantic UI CSS Framework’s CSS class .error, which means if I add the class error
   to the <div class= "field"> it will show the input tag with a red border.-->
@@ -22,6 +22,10 @@
       >
       <div *ngIf="!myForm.controls['sku'].valid" class="ui error message">SKU is invalid</div>
       <div *ngIf="myForm.controls['sku'].hasError('required')" class="ui error message">SKU is required</div>
+
+      <!--NEW CUSTOM VALIDATION HERE-->
+      <div *ngIf="myForm.controls['sku'].hasError('invalidSku')" class="ui error message">SKU must begin with 123</div>
+
     </div>
     <div *ngIf="!myForm.valid" class="ui error message">Form is Invalid</div>
     <button type="submit" class="ui button" [disabled]="!myForm.valid">Submit</button>
