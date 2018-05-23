@@ -12,6 +12,7 @@ import { FormValidationComponent } from './form-validation-explicit/form-validat
 import { FormValidationShorthandComponent } from './form-validation-shorthand/form-validation-shorthand.component';
 import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 import { FormWithEventComponent } from './form-with-event/form-with-event.component';
+import { FormNgModelComponent } from './form-ng-model/form-ng-model.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormWithEventComponent } from './form-with-event/form-with-event.compon
     FormValidationComponent,
     FormValidationShorthandComponent,
     CustomValidationComponent,
-    FormWithEventComponent
+    FormWithEventComponent,
+    FormNgModelComponent
   ],
   imports: [
     BrowserModule,

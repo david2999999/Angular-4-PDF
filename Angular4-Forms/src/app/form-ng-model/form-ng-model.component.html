@@ -1,0 +1,32 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: With NgModel</h2>
+  <div class="ui info message">
+      The product name is: {{productName}}
+  </div>
+
+  <!--I’m using the Semantic UI CSS Framework’s CSS class .error, which means if I add the class error
+  to the <div class= "field"> it will show the input tag with a red border.-->
+  <form [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm.value)"
+        class="ui form"
+        [class.error]="!myForm.valid && myForm.touched"
+  >
+    <!--Now notice something - the syntax for ngModel is funny: we are using both brackets and parentheses
+      around the ngModel attribute! The idea this is intended to invoke is that we’re using both the input
+      [] brackets and the output () parentheses. It’s an indication of the two-way bind.-->
+    <label for="productNameInput">Product Name</label>
+    <input type="text"
+           id="productNameInput"
+           placeholder="Product Name"
+           [formControl]="myForm.get('productName')"
+           [(ngModel)]="productName"
+    >
+
+    <!--Notice something else here: we’re still using formControl to specify that this input should be bound
+    to the FormControl on our form. We do this because ngModel is only binding the input to the instance
+    variable - the FormControl is completely separate. But because we still want to validate this value
+    and submit it as part of the form, we keep the formControl directive.-->
+    <div *ngIf="!myForm.valid" class="ui error message">Form is Invalid</div>
+    <button type="submit" class="ui button" [disabled]="!myForm.valid">Submit</button>
+  </form>
+</div>
