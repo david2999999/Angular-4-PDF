@@ -9,6 +9,7 @@ import {UserService} from './services/user.service';
 import { NgModuleDiComponent } from './ng-module-di/ng-module-di.component';
 import {AnalyticsService} from './analytics/analytics.service';
 import {AnalyticsImplementation, Metric} from './analytics/analytics.interface';
+import {Http, HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -19,10 +20,19 @@ import {AnalyticsImplementation, Metric} from './analytics/analytics.interface';
   ],
   imports: [
     SuiModule,
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [
     UserService,
+
+    // Say that we wanted to configure our AnalyticsImplementation to make an HTTP request to a
+    // particular URL. In order to do this we’d need:
+    // • The Angular Http client and
+    // • Our API_URL value
+    // add our API_URL provider
+    {provide: 'API_URL', useValue: 'http://devserver.com'},
+
 
     // • create an implementation that conforms to AnalyticsImplementation and
     // • add it to providers with useFactory
@@ -31,14 +41,20 @@ import {AnalyticsImplementation, Metric} from './analytics/analytics.interface';
       // note, the token is the class, but it's just used as an identifier!
       provide: AnalyticsService,
 
+      // add our `deps` to specify the factory dependencies
+      // new key: deps. deps is an array of injection tokens and these tokens will be resolved
+      // and passed as arguments to the factory function.
+      deps: [Http, 'API_URL'],
+
       // useFactory is a function - whatever is returned from this function
       // will be injected
-      useFactory() {
+      useFactory(http: Http, apiURL: string) {
 
         // create an implementation that will log the event
         const loggingImplementation: AnalyticsImplementation = {
           recordEvent: (metric: Metric): void => {
-            console.log('The metric is: ', metric);
+            console.log('Sending to: ', apiURL);
+            // ... You'd send the metric using http here ...
           }
         };
 
