@@ -4,15 +4,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {SuiModule} from 'ng2-semantic-ui';
+import {HttpModule} from '@angular/http';
+import { SimpleHttpComponent } from './simple-http/simple-http.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SimpleHttpComponent
   ],
   imports: [
     BrowserModule,
-    SuiModule
+    SuiModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
