@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {SuiModule} from 'ng2-semantic-ui';
 import {HttpModule} from '@angular/http';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
+import {youTubeSearchInjectables} from './youtube-search/youtube-search.injectables';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { SimpleHttpComponent } from './simple-http/simple-http.component';
     SuiModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    youTubeSearchInjectables
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
