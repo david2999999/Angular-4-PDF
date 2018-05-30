@@ -12,6 +12,7 @@ import {SearchBoxComponent} from './youtube-search/search-box.component';
 import {SearchResultComponent} from './youtube-search/search-result.component';
 import {YoutubeSearchComponent} from './youtube-search/youtube-search.component';
 import { PostRequestComponent } from './post-request/post-request.component';
+import { DeleteRequestComponent } from './delete-request/delete-request.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PostRequestComponent } from './post-request/post-request.component';
     SearchBoxComponent,
     SearchResultComponent,
     YoutubeSearchComponent,
-    PostRequestComponent
+    PostRequestComponent,
+    DeleteRequestComponent
   ],
   imports: [
     BrowserModule,
