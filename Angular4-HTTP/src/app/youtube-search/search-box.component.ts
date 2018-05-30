@@ -13,7 +13,7 @@ import {Observable} from 'rxjs/Rx';
   `
 })
 
-export class SearchBoxComponent implements OnInit{
+export class SearchBoxComponent implements OnInit {
   @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() results: EventEmitter<SearchResult[]> = new EventEmitter<SearchResult[]>();
 
