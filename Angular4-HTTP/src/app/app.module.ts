@@ -13,6 +13,7 @@ import {SearchResultComponent} from './youtube-search/search-result.component';
 import {YoutubeSearchComponent} from './youtube-search/youtube-search.component';
 import { PostRequestComponent } from './post-request/post-request.component';
 import { DeleteRequestComponent } from './delete-request/delete-request.component';
+import { RequestOptionsComponent } from './request-options/request-options.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DeleteRequestComponent } from './delete-request/delete-request.componen
     SearchResultComponent,
     YoutubeSearchComponent,
     PostRequestComponent,
-    DeleteRequestComponent
+    DeleteRequestComponent,
+    RequestOptionsComponent
   ],
   imports: [
     BrowserModule,
