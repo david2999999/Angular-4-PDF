@@ -1,7 +1,10 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 import {SearchResult} from './search-result.model';
 import {YoutubeSearchService} from './youtube-search.service';
-import {Observable} from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/observable/map';
+import {Observable} from 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-search-box',

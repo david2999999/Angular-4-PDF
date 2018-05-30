@@ -1,7 +1,7 @@
 import {YoutubeSearchService} from './youtube-search.service';
 
-const YOUTUBE_API_KEY = 'AIzaSyDXZ4kwxSqz4-CZ0gKVdH9ooTKfvoB7vvY';
-const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search';
+const YOUTUBE_API_KEY = 'AIzaSyDWvq7JXzj2ZaxhA-8Y67GfUH9z72Wv5fI';
+const YOUTUBE_API_URL =  'https://www.googleapis.com/youtube/v3/search';
 
 export const youTubeSearchInjectables: Array<any> = [
   {provide: YoutubeSearchService, useClass: YoutubeSearchService},
