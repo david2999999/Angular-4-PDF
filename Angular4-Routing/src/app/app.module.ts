@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {APP_BASE_HREF} from '@angular/common';
+import {APP_BASE_HREF, HashLocationStrategy} from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { ProtectedComponent } from './protected/protected.component';
 
 // • path specifies the URL this route will handle
 // • component is what ties a given route path to a component that will handle the route
@@ -21,29 +23,31 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'contactus', redirectTo: 'contact'},
 
-  // authentication demo
-  {path: 'login', component: LoginComponent},
-  {
-    path: 'protected',
-    component: ProtectedComponent,
-    canActivate: [LoggedInGuard]
-  },
-
-  // nested
-  {
-    path: 'products',
-    component: ProductsComponent,
-    children: childRoutes
-  }
-]
+  // // authentication demo
+  // {path: 'login', component: LoginComponent},
+  // {
+  //   path: 'protected',
+  //   component: ProtectedComponent,
+  //   canActivate: [LoggedInGuard]
+  // },
+  //
+  // // nested
+  // {
+  //   path: 'products',
+  //   component: ProductsComponent,
+  //   children: childRoutes
+  // }
+];
 
 
 @NgModule({
   declarations: [
-    AppCom,
+    AppComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponentponent
+    ContactComponent,
+    LoginComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
@@ -52,10 +56,14 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
 
     // added this for our child module
-    ProductsModule
+    // ProductsModule
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    {provide: APP_BASE_HREF, useValue: '/'},
+    // uncomment this for "hash-bang" routing
+    // {provide: LocalStrategy, useClass: HashLocationStrategy},
+    // AUTH_PROVIDERS,
+    // LoggedInGuard
   ],
   bootstrap: [AppComponent]
 })
@@ -66,3 +74,8 @@ export class AppModule { }
 // application.
 // Fortunately there is a workaround for this case. You can declare the application base path
 // programmatically, when configuring our NgModule by using the APP_BASE_HREF provider:
+
+
+// In our imports we have RouterModule.forRoot(routes). RouterModule.forRoot(routes) is a
+// function that will take our routes, configure the router, and return a list of dependencies like
+// RouteRegistry, Location, and several other classes that are necessary to make routing work.
