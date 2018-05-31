@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 // • path specifies the URL this route will handle
 // • component is what ties a given route path to a component that will handle the route
@@ -38,6 +40,12 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(routes),
+
+    // added this for our child module
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
