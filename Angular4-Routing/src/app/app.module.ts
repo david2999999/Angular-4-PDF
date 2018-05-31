@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ProtectedComponent } from './protected/protected.component';
+import { ProductComponent } from './product/product.component';
 
 // • path specifies the URL this route will handle
 // • component is what ties a given route path to a component that will handle the route
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'contactus', redirectTo: 'contact'},
-
+  {path: 'product/:id', component: ProductComponent}
   // // authentication demo
   // {path: 'login', component: LoginComponent},
   // {
@@ -47,7 +48,8 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
