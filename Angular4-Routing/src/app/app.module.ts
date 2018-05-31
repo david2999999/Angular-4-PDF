@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {APP_BASE_HREF} from '@angular/common';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 // • path specifies the URL this route will handle
 // • component is what ties a given route path to a component that will handle the route
@@ -36,7 +40,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppCom,
+    HomeComponent,
+    AboutComponent,
+    ContactComponentponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,15 @@ const routes: Routes = [
     // added this for our child module
     ProductsModule
   ],
-  providers: [],
+  providers: [
+    {provide: APP_BASE_HREF, useValue: '/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// Sometimes though, coders of an Angular application don’t have access to the head section of the
+// application HTML. This is true for instance, when reusing headers and footers of a larger, preexisting
+// application.
+// Fortunately there is a workaround for this case. You can declare the application base path
+// programmatically, when configuring our NgModule by using the APP_BASE_HREF provider:
