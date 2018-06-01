@@ -4,6 +4,8 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class SpotifyService {
+  private clientId = 'c497423964864803a1356c3426d60197';
+  // http://localhost:4200/search#access_token=BQALQE376-SYGFcemXlHk40FwrEKZt25KvkkydSprba-e5rB6XUa5Zx01JfHEDuKElWFMSNSDN2h4zzELE4ewknbft2kVLWzxGu-mcTJbDI4Ure-bVtECxgdXSO5-eRLYSp8eQzHibJ0LwnHvNxFjXN5FV-TSJk&token_type=Bearer&expires_in=3600
   constructor(public http: Http) {}
 
   searchTrack(query: string) {
@@ -12,8 +14,8 @@ export class SpotifyService {
       `type=track`
     ].join('&');
 
-    const queryURL = `https://api.spotify.com/v1/search?${params}`;
-    return this.http.request(queryURL).map(res => res.json());
+    const queryURL = `https://api.spotify.com/v1/search?type=track&limit=10&client_id=${this.clientId}&q=${query}`;
+    return this.http.get(queryURL).map(res => res.json());
   }
 
 }

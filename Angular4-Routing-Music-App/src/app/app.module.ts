@@ -10,6 +10,15 @@ import {HttpModule} from '@angular/http';
 import { SearchComponent } from './search/search.component';
 import {SpotifyService} from './service/spotify.service';
 import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'search', pathMatch: 'full'},
+  {path: 'search', component: SearchComponent},
+  {path: 'artists', component: ArtistComponent},
+  {path: 'tracks', component: TrackComponent},
+  {path: 'album', component: AlbumComponent}
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +31,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     SpotifyService
