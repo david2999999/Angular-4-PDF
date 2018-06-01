@@ -9,7 +9,7 @@ import { TrackComponent } from './track/track.component';
 import {HttpModule} from '@angular/http';
 import { SearchComponent } from './search/search.component';
 import {SpotifyService} from './service/spotify.service';
-
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {SpotifyService} from './service/spotify.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     SpotifyService

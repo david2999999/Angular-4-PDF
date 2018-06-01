@@ -21,9 +21,45 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  // As we pointed out above, we want to be able to jump straight into the results if the URL includes a
+  // search query.
+  // To do that, we are going to implement a hook Angular router provides for us to run whenever our
+  // component is initialized.
+  // But isn’t that what constructors are for? Well, yes and no. Yes, constructors are used to
+  // initialize values, but if you want to write good, testable code, you want to minimize the side
+  // effects of constructing an object. So keep in mind that you should put your component’s
+  // initialization logic always on a hook like below.
   ngOnInit() {
+    this.search();
   }
 
+  search(): void {
+    console.log('this.query', this.query);
+    if (!this.query) {
+      return;
+    }
+
+    this.spotify.searchTrack(this.query).subscribe((res: any) =>
+      this.renderResults(res));
+  }
+
+  // We declared results as a component property. Whenever its value is changed, the view will be
+  // automatically updated by Angular.
+  renderResults(res: any): void {
+    this.results = null;
+    if (res && res.tracks && res.tracks.items) {
+      this.results = res.tracks.items;
+    }
+  }
+
+  // We’re manually telling the router to navigate to the search route, and providing a query parameter,
+  // then performing the actual search.
+  // Doing things this way gives us a great benefit: if we reload the browser, we’re going to see the same
+  // search result rendered. We can say that we’re persisting the search term on the URL.
+  submit(query: string): void {
+    this.router.navigate(['search'], {queryParams: {query: query}}).
+      then(_ => this.search());
+  }
 }
 
 // • query for current search term and
